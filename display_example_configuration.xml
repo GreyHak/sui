@@ -145,7 +145,7 @@
       <box left="1490" top="96" width="350" height="201" title="SUI Python Library Info" font-size="32">
          <text-static left="13" top="0"  text="SUI: Status User Interface" font-size="30"/>
          <text-static left="+0" top="+29" text="Developed by GreyHak" font-size="30"/>
-         <text-static left="+0" top="+29" text="Copyright &#169; 2023-2024, GreyHak" font-size="30"/>
+         <text-static left="+0" top="+29" text="Copyright &#169; 2023-2025, GreyHak" font-size="30"/>
          <text-static left="+0"   top="+23" text="All rights reserved." font-size="22"/>
          <text-static left="+176" top="+0" text="github.com/GreyHak" font-size="22"/>
 
