@@ -2,7 +2,7 @@
                     Application Programming Interface (API)
                               Written by GreyHak
 
-This document was written for SUI v1.45.7, released 16 July 2025.
+This document was written for SUI v1.45.8, released 5 August 2025.
 
 Copyright © 2023-2025, GreyHak (github.com/GreyHak), All rights reserved.
 
@@ -314,6 +314,12 @@ callback is likely, but not guaranteed, to be called after the terminate
 routine.
 
 *** 6.9 Popup Boxes
+
+bool suiWindow.getBoxEnable(str boxDataName)
+
+Call getBoxEnable to determine if a named box is being displayed.  Returns
+true if the box is being displayed, false if the box is hidden, or None if the
+a box was not identified by the name specified.
 
 suiWindow.setBoxEnable(str boxDataName, bool enableFlag)
 

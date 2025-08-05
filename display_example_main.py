@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2024, GreyHak (github.com/GreyHak), All rights reserved.
+# Copyright (c) 2023-2025, GreyHak (github.com/GreyHak), All rights reserved.
 # This file alone is licensed under the BSD 3-Clause License.
 # The SUI library files are proprietary software usable under license.
 
@@ -33,8 +33,7 @@ class CallbackHandler:
          self.suiWindow.displayPage(parameter)
 
    def onPopupPage(self, parameter, xy):
-      parameter = parameter.lower() in ('y', 'yes', 't', 'true', 'on', '1')
-      self.suiWindow.setBoxEnable("PopupBox", parameter)
+      self.suiWindow.setBoxEnable("PopupBox", not self.suiWindow.getBoxEnable("PopupBox"))
 
    def onAddError(self, parameter, xy):
       if self.suiWindow:

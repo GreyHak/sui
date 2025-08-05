@@ -52,7 +52,7 @@
 
       <box left="+0" top="+310" width="350" height="260" title="Buttons / Multi-Page / Popup" font-size="29">
          <button left="27" top="-4" width="138" height="32" text="Display" font-size="34" callback="onChangePage" callback-parameter="SecondPage"/>
-         <button left="+156" top="+0" width="138" height="32" text="Popup" font-size="34" callback="onPopupPage" callback-parameter="true"/>
+         <button left="+156" top="+0" width="138" height="32" text="Popup" font-size="34" callback="onPopupPage"/>
 
          <text-static left="12" top="40" text="Buttons give callbacks to the application" font-size="24"/>
          <text-static left="+0" top="+18" text="on left-click.  These will switch the screen" font-size="24"/>
@@ -199,7 +199,7 @@
 &#xA;will be drawn in an error color (e.g. red).
 &#xA;Hold Ctrl and the circle will show the percent of
 &#xA;the frame rate consumed by the processing." font-size="26"/>
-         <button left="133" top="228" width="150" height="34" text="Dismiss" font-size="34" callback="onPopupPage" callback-parameter="false"/>
+         <button left="133" top="228" width="150" height="34" text="Dismiss" font-size="34" callback="onPopupPage"/>
       </box>
    </page>
 
