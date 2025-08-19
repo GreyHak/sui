@@ -104,7 +104,7 @@
       </box>
 
       <box left="400" top="350" width="1065" height="265" title="X/Y Plot Example" font-size="32">
-         <xy-plot left="11" top="0" width="1037" height="165" line-thickness="2" fill="true" x-span="5000" max-y-value="80000" data-name="plotData" explanation="This is an x/y plot."/>
+         <xy-plot left="11" top="0" width="1037" height="165" draw-bg="false" line-thickness="2" fill="true" x-span="5000" max-y-value="80000" data-name="plotData" explanation="This is an x/y plot."/>
          <text-static left="8" top="+172" text="x-axis is always at y=0.  X/Y Plot will still plot data &lt; 0 and data &gt; max, overflowing the plot and box.  (This data intentionally overflows.)" font-size="24"/>
       </box>
 

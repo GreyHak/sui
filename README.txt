@@ -2,7 +2,7 @@
                     Application Programming Interface (API)
                               Written by GreyHak
 
-This document was written for SUI v1.45.8, released 5 August 2025.
+This document was written for SUI v1.45.9, released 18 August 2025.
 
 Copyright © 2023-2025, GreyHak (github.com/GreyHak), All rights reserved.
 
