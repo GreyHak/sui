@@ -2,7 +2,7 @@
                     Application Programming Interface (API)
                               Written by GreyHak
 
-This document was written for SUI v1.45.9, released 18 August 2025.
+This document was written for SUI v1.45.10, released 12 November 2025.
 
 Copyright © 2023-2025, GreyHak (github.com/GreyHak), All rights reserved.
 
@@ -44,7 +44,7 @@ Import the SUI Python library as follows, being sure to reference the package
 built for your Python version.
 
 import sys
-sys.path.insert(0, "sui_pyc-37.pyc")
+sys.path.insert(0, "sui_pyc-313.pyc")
 import sui_window
 
 *** 2.1 SUI No-Op
@@ -59,8 +59,8 @@ Section 4.3 will not be called because no valid Surface can be provided.
 
 ** 3 Initialization
 
-suiWindow = sui_window.sui_window(str configFilename,
-                                  callbackHandler = None)
+suiWindow = sui_window.sui_window(configFilename: str,
+                                  callbackHandler: typing.Callable | None = None)
 
 This initializes the display, loading the XML configuration file and creating
 all the display elements.  The configFilename must provide a path to an XML
@@ -86,9 +86,9 @@ length list, or a pygame.Color.  You can also use the pygame color dictionary:
 
 ** 4 Main Loop
 
-suiWindow.loop(terminationCallbackFunction = None,
-               terminationCheckCallbackFunction = None,
-               frameCallbackFunction = None)
+suiWindow.loop(terminationCallbackFunction: typing.Callable | None = None,
+               terminationCheckCallbackFunction: typing.Callable | None = None,
+               frameCallbackFunction: typing.Callable | None = None)
 
 This is the main loop which refreshes the display.  This routine must be
 called in the main thread, and it will not return until the display
@@ -123,7 +123,7 @@ arguments, pygame.Surface and a string specifying the page name.
 
 ** 5 Setting Data
 
-suiWindow.setValue(str dataName, value, xValue = 0, bool initializationFlag = False)
+suiWindow.setValue(dataName: str, value: typing.Any, xValue = 0, initializationFlag: bool = False)
 
 This is the method for setting data on the display.  It is thread safe.  The
 SUI data handling system works as a set of name/value pairs where the
@@ -178,7 +178,7 @@ make plotting with anything other than increasing time a bit finicky.
 
 *** 5.3 Setting Table Data
 
-int sui_window.insertTableRow(str dataName, value, int row = -1)
+int sui_window.insertTableRow(dataName: str, value: typing.Any, row: int = -1)
 
 insertTableRow inserts a new row into the named table.  The value must be a
 tuple or list with a length matching that of the table's number of columns.
@@ -188,7 +188,7 @@ negative, or larger than the table, the new row is added to the end of the
 table.  The new row's index is returned, or None if the <table> dataName is
 unknown.
 
-sui_window.setTableData(str dataName, value, row)
+sui_window.setTableData(dataName: str, value: typing.Any, row: int | tuple | list)
 
 setTableData sets data in the named table.  It handles the value and row
 arguments in any of the following ways
@@ -204,7 +204,7 @@ arguments in any of the following ways
 3) Setting a single cell identified by the row index in a 1-D table.
    The row must be a valid row index integer.
 
-int sui_window.removeTableRow(str dataName, int row = -1)
+int sui_window.removeTableRow(dataName: str, row: int = -1)
 
 removeTableRow removes a row from the named table.  If row is negative, it
 will be interpreted as wrapping around the end of the table.  The removed
@@ -212,7 +212,7 @@ row's index is returned, or None if the <table> dataName is unknown.  If row
 specifies an row beyond the range of the table data, a ValueError exception is
 thrown.
 
-sui_window.getTableSize(str dataName)
+sui_window.getTableSize(dataName: str)
 
 getTableSize returns a tuple (number of rows, number of columns, row height in
 pixels, tuple of column widths in pixels).
@@ -221,7 +221,7 @@ pixels, tuple of column widths in pixels).
 
 *** 6.1 Getting Data
 
-suiWindow.getValue(str dataName)
+suiWindow.getValue(dataName: str)
 
 Returns the value for the first element defined with name=dataName.  All
 elements with name=dataName should have the same value, so this function's
@@ -232,7 +232,7 @@ typed character to the value of a string displayed with a <text-value>.
 
 *** 6.2 Changing Display Page
 
-suiWindow.displayPage(str pageName)
+suiWindow.displayPage(pageName: str)
 
 Changes the page layout being displayed to the page identified by pageName.
 This can be used in conjunction with a left-click on a <button>, <image>,
@@ -240,13 +240,13 @@ This can be used in conjunction with a left-click on a <button>, <image>,
 
 *** 6.3 Getting Display Page
 
-pageName = suiWindow.getCurrentDisplayedPage()
+pageName = suiWindow.getCurrentDisplayedPage() -> str
 
 Returns the name of the page being displayed.
 
 *** 6.4 Setting Data Alert
 
-suiWindow.setAlert(str dataName, bool alertFlag)
+suiWindow.setAlert(dataName: str, alertFlag: bool)
 
 Sets the alert flag for all <text-value> and <linear-plot> elements defined
 with name=dataName.  This causes the value to be shown in a warning color.
@@ -255,7 +255,7 @@ application, but it is available for any use case.
 
 *** 6.5 Setting the Focus
 
-suiWindow.setTextValueFocus(str dataName, bool focusFlag)
+suiWindow.setTextValueFocus(dataName: str, focusFlag: bool)
 
 Sets the focus to all <text-value> elements defined with name=dataName.  Focus
 is shown as a box around the whole <text-value> element.  Note that the box is
@@ -266,7 +266,7 @@ for any use case.
 
 *** 6.6 Getting the Focus
 
-flag = suiWindow.getTextValueFocus(str dataName)
+suiWindow.getTextValueFocus(dataName: str) -> bool | None
 
 Returns the focus value for the first <text-value> element defined with
 name=dataName.  Since setTextValueFocus sets the focus for all associated
@@ -276,8 +276,8 @@ with name=dataName, None is returned.
 
 *** 6.7 Active/Inactive State
 
-suiWindow.setApplicationControlledActivityFlag(bool activeFlag, str dataName = None)
-suiWindow.setTimeForAutomaticActivity(float timeInSeconds, str dataName = None)
+suiWindow.setApplicationControlledActivityFlag(activeFlag: bool, dataName: str | None = None)
+suiWindow.setTimeForAutomaticActivity(timeInSeconds: float, dataName: str | None = None)
 
 SUI can display <on-off-bulb>, <color-bulb>, <error-bulb>, <text-value>,
 <plot>, <linear-percent>, and <circular-percent> elements in an inactive state
@@ -315,13 +315,13 @@ routine.
 
 *** 6.9 Popup Boxes
 
-bool suiWindow.getBoxEnable(str boxDataName)
+suiWindow.getBoxEnable(boxDataName: str) -> bool
 
 Call getBoxEnable to determine if a named box is being displayed.  Returns
 true if the box is being displayed, false if the box is hidden, or None if the
 a box was not identified by the name specified.
 
-suiWindow.setBoxEnable(str boxDataName, bool enableFlag)
+suiWindow.setBoxEnable(boxDataName: str, enableFlag: bool)
 
 Set enableFlag to true to display a box and the elements it contains, or false
 to hide it.
