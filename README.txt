@@ -2,9 +2,9 @@
                     Application Programming Interface (API)
                               Written by GreyHak
 
-This document was written for SUI v1.45.10, released 12 November 2025.
+This document was written for SUI v1.45.11, released 3 March 2026.
 
-Copyright © 2023-2025, GreyHak (github.com/GreyHak), All rights reserved.
+Copyright © 2023-2026, GreyHak (github.com/GreyHak), All rights reserved.
 
 ** 1 Machine Setup
 
@@ -18,12 +18,19 @@ module included in Python 3.9 and later.
    pip install pygame_ce
    pip install tzdata
 
+Or with a proxy:
+
+   python3 -m pip --proxy http://$USER@$PROXY install pycryptodome
+   python3 -m pip --proxy http://$USER@$PROXY install pygame_ce
+   python3 -m pip --proxy http://$USER@$PROXY install tzdata
+
 This release of SUI has been built for and tested on:
  - Windows 11 using Python 3.9.13  and pygame-ce 2.5.0 and pycryptodome 3.20.0
  - Windows 11 using Python 3.10.11 and pygame-ce 2.5.0 and pycryptodome 3.20.0
  - Windows 11 using Python 3.11.9  and pygame-ce 2.5.0 and pycryptodome 3.20.0
  - Windows 11 using Python 3.12.10 and pygame-ce 2.5.0 and pycryptodome 3.20.0
  - Windows 11 using Python 3.13.5  and pygame-ce 2.5.5 and pycryptodome 3.23.0
+ - Windows 11 using Python 3.14.3  and pygame-ce 2.5.6 and pycryptodome 3.23.0
 
 Also tested on:
  - Ubuntu 22.04.3 LTS using Python 3.7.17 and pygame-ce 2.3.2
