@@ -2,7 +2,7 @@
                     Application Programming Interface (API)
                               Written by GreyHak
 
-This document was written for SUI v1.45.12, released 24 March 2026.
+This document was written for SUI v1.45.13, released 26 June 2026.
 
 Copyright © 2023-2026, GreyHak (github.com/GreyHak), All rights reserved.
 
@@ -51,7 +51,7 @@ Import the SUI Python library as follows, being sure to reference the package
 built for your Python version.
 
 import sys
-sys.path.insert(0, "sui_pyc-313.pyc")
+sys.path.insert(0, "sui_pyc-314.pyc")
 import sui_window
 
 *** 2.1 SUI No-Op
